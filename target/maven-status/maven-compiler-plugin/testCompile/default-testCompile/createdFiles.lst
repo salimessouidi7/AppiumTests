@@ -1,0 +1,7 @@
+baseUtils\Base.class
+pagesTest\SetUpWifi.class
+storeApp\ShopStoreApp.class
+pagesTest\LongPress.class
+pagesTest\GetTextFromApp.class
+pagesTest\LaunchGoogleChromeTest.class
+baseUtils\AppiumTest.class
