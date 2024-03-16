@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-15T05:47:52 GMT+01:00" name="Suite" finished-at="2024-03-15T05:48:25 GMT+01:00" duration-ms="32503">
+  <suite started-at="2024-03-16T10:43:20 GMT+01:00" name="Default suite" finished-at="2024-03-16T10:44:34 GMT+01:00" duration-ms="73533">
     <groups>
     </groups>
-    <test started-at="2024-03-15T05:47:52 GMT+01:00" name="Test" finished-at="2024-03-15T05:48:25 GMT+01:00" duration-ms="32503">
+    <test started-at="2024-03-16T10:43:20 GMT+01:00" name="Default test" finished-at="2024-03-16T10:44:34 GMT+01:00" duration-ms="73533">
       <class name="pagesTest.LongPress">
-        <test-method is-config="true" signature="startAppiumServer()[pri:0, instance:pagesTest.LongPress@3835c46]" started-at="2024-03-15T05:47:52 GMT+01:00" name="startAppiumServer" description="Starts the Appium server automatically and initializes the Android driver for testing" finished-at="2024-03-15T05:48:12 GMT+01:00" duration-ms="19753" status="PASS">
+        <test-method is-config="true" signature="startAppiumServer()[pri:0, instance:pagesTest.LongPress@7714e963]" started-at="2024-03-16T10:43:20 GMT+01:00" name="startAppiumServer" description="Starts the Appium server automatically and initializes the Android driver for testing" finished-at="2024-03-16T10:44:13 GMT+01:00" duration-ms="52779" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startAppiumServer -->
-        <test-method signature="longPressTest()[pri:0, instance:pagesTest.LongPress@3835c46]" started-at="2024-03-15T05:48:12 GMT+01:00" name="longPressTest" description="Perform a long press action on an element" finished-at="2024-03-15T05:48:24 GMT+01:00" duration-ms="12009" status="PASS">
+        <test-method signature="longPressTest()[pri:0, instance:pagesTest.LongPress@7714e963]" started-at="2024-03-16T10:44:13 GMT+01:00" name="longPressTest" description="Perform a long press action on an element" finished-at="2024-03-16T10:44:31 GMT+01:00" duration-ms="17826" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- longPressTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:pagesTest.LongPress@3835c46]" started-at="2024-03-15T05:48:24 GMT+01:00" name="tearDown" finished-at="2024-03-15T05:48:25 GMT+01:00" duration-ms="692" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:pagesTest.LongPress@7714e963]" started-at="2024-03-16T10:44:31 GMT+01:00" name="tearDown" finished-at="2024-03-16T10:44:34 GMT+01:00" duration-ms="2867" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- pagesTest.LongPress -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

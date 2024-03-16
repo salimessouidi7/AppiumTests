@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="storeApp.ShopStoreApp">
+      <class name="storeApp.ApkPure">
         <methods>
           <include name="startAppiumServer"/>
-          <include name="scrollToItemAndSelect"/>
+          <include name="apkPureTest"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- storeApp.ShopStoreApp -->
+      </class> <!-- storeApp.ApkPure -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
