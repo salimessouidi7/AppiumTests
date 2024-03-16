@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 import com.google.common.collect.ImmutableMap;
@@ -78,6 +79,16 @@ public class Base {
 		 */
 
 	}
+	
+	/**
+	 * This method used for GetTextFromApp class
+	 */
+	public void getTextFromEle() {
+    	// Extract the text
+    	String text = getElementText(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"Media\"]"));
+    	// Print the extracted text
+    	Assert.assertEquals(text, "Media");
+    	}
 
 	/**
 	 * This method used for setUpWifi class
@@ -101,7 +112,6 @@ public class Base {
 		clickByXPath("//android.widget.ListView[@resource-id=\"android:id/list\"]/android.widget.LinearLayout[2]/android.widget.RelativeLayout");
 
 		sendKeysById("android:id/edit", "Mr Unknown");
-		driver.findElement(AppiumBy.id("android:id/button1")).click();
 		clickById("android:id/button1");
 	}
 
@@ -127,7 +137,7 @@ public class Base {
 
 	/**
 	 * Those methods used for ShopStoreApp class
-	 * Object Locators on Appium : xpath, id, classname, accessibilityid, androidUIautomator
+	 * 
 	 */
 	public void personalInfo() {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -136,7 +146,6 @@ public class Base {
 		String country = "Algeria";
 
 		// Select Personal Information
-		driver.findElement(AppiumBy.className("android.widget.Spinner")).click();
 		clickByClassname("android.widget.Spinner");
 
 		clickByXPath("//android.widget.TextView[@resource-id=\"android:id/text1\" and @text=\"" + country + "\"]");
@@ -235,6 +244,10 @@ public class Base {
     // Refactored method to find and send keys to element by id
     private void sendKeysById(String id, String keys) {
         driver.findElement(AppiumBy.id(id)).sendKeys(keys);
+    }
+    
+    private String getElementText(By locator) {
+    	return driver.findElement(locator).getText();
     }
 
     // Refactored method to perform long press
