@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-16T13:59:22 GMT+01:00" name="Default suite" finished-at="2024-03-16T13:59:52 GMT+01:00" duration-ms="29908">
+  <suite started-at="2024-03-16T15:21:21 GMT+01:00" name="Default suite" finished-at="2024-03-16T15:21:42 GMT+01:00" duration-ms="20546">
     <groups>
     </groups>
-    <test started-at="2024-03-16T13:59:22 GMT+01:00" name="Default test" finished-at="2024-03-16T13:59:52 GMT+01:00" duration-ms="29908">
-      <class name="pagesTest.LongPress">
-        <test-method is-config="true" signature="startAppiumServer()[pri:0, instance:pagesTest.LongPress@402bba4f]" started-at="2024-03-16T13:59:22 GMT+01:00" name="startAppiumServer" description="Starts the Appium server automatically and initializes the Android driver for testing" finished-at="2024-03-16T13:59:39 GMT+01:00" duration-ms="16920" status="PASS">
+    <test started-at="2024-03-16T15:21:21 GMT+01:00" name="Default test" finished-at="2024-03-16T15:21:42 GMT+01:00" duration-ms="20546">
+      <class name="pagesTest.GetTextFromApp">
+        <test-method is-config="true" signature="startAppiumServer()[pri:0, instance:pagesTest.GetTextFromApp@5fdcaa40]" started-at="2024-03-16T15:21:21 GMT+01:00" name="startAppiumServer" description="Starts the Appium server automatically and initializes the Android driver for testing" finished-at="2024-03-16T15:21:37 GMT+01:00" duration-ms="15960" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startAppiumServer -->
-        <test-method signature="longPressTest()[pri:0, instance:pagesTest.LongPress@402bba4f]" started-at="2024-03-16T13:59:39 GMT+01:00" name="longPressTest" description="Perform a long press action on an element" finished-at="2024-03-16T13:59:51 GMT+01:00" duration-ms="12318" status="PASS">
+        <test-method signature="extractTextFromAppiumElement()[pri:0, instance:pagesTest.GetTextFromApp@5fdcaa40]" started-at="2024-03-16T15:21:37 GMT+01:00" name="extractTextFromAppiumElement" finished-at="2024-03-16T15:21:41 GMT+01:00" duration-ms="3623" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- longPressTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:pagesTest.LongPress@402bba4f]" started-at="2024-03-16T13:59:51 GMT+01:00" name="tearDown" finished-at="2024-03-16T13:59:52 GMT+01:00" duration-ms="606" status="PASS">
+        </test-method> <!-- extractTextFromAppiumElement -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:pagesTest.GetTextFromApp@5fdcaa40]" started-at="2024-03-16T15:21:41 GMT+01:00" name="tearDown" finished-at="2024-03-16T15:21:42 GMT+01:00" duration-ms="915" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- pagesTest.LongPress -->
+      </class> <!-- pagesTest.GetTextFromApp -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

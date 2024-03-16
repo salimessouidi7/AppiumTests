@@ -7,6 +7,7 @@ public class LongPress extends Base {
 	
 	public LongPress(String appName) {
 		// Initialize with the name of the APK file for the application
+		
 		super("ApiDemos-debug.apk");
 	}
 

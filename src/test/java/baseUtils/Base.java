@@ -24,48 +24,57 @@ import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 
-public class Base {
-	static WebDriverWait wait;
-	protected static AndroidDriver driver;
-	public AppiumServiceBuilder builder;
-	public AppiumDriverLocalService appiumService;
-	private String appName;
+public class Base{
+    private WebDriverWait wait;
+    private AndroidDriver driver;
+    private AppiumServiceBuilder builder;
+    private AppiumDriverLocalService appiumService;
+    private String appName;
 
-	public Base(String appName) {
-		this.appName = appName;
+    public Base(String appName) {
+        this.appName = appName;
+        
+    }
 
-	}
+    @BeforeClass(description = "Starts the Appium server automatically and initializes the Android driver for testing")
+    public void startAppiumServer() {
 
-	@BeforeClass(description = "Starts the Appium server automatically and initializes the Android driver for testing")
-	public void startAppiumServer() throws MalformedURLException {
+        // The path the Appium server executable
+        String appiumPath = "C:\\Users\\TOPINFORMATIQUE\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js";
 
-		// The path the Appium server executable
-		String appiumPath = "C:\\Users\\TOPINFORMATIQUE\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js";
+        // Build the Appium service builder
+     // Build the Appium service builder
+        builder = new AppiumServiceBuilder()
+                .withAppiumJS(new File(appiumPath))
+                .withIPAddress("127.0.0.1")
+                .usingPort(4723)
+                .withTimeout(Duration.ofSeconds(300));
 
-		// Build the Appium service builder
-		builder = new AppiumServiceBuilder().withAppiumJS(new File(appiumPath)).withIPAddress("127.0.0.1")
-				.usingPort(4723).withTimeout(Duration.ofSeconds(300));
+        // Start the Appium server
+        appiumService = builder.build();
+        appiumService.start();
 
-		// Start the Appium server
-		appiumService = builder.build();
-		appiumService.start();
+        System.out.println("Appium server started successfully.");
 
-		System.out.println("Appium server started successfully.");
+        // Create capabilities
+        UiAutomator2Options cap = new UiAutomator2Options();
+        cap.setDeviceName("DemoDevice");
+        cap.setApp(System.getProperty("user.dir") + "\\src\\test\\resources\\" + appName);
 
-		// Create capabilities
-		UiAutomator2Options cap = new UiAutomator2Options();
-		cap.setDeviceName("DemoDevice");
-		cap.setApp(System.getProperty("user.dir") + "\\src\\test\\resources\\" + appName);
+        // Set Appium server URL (default port 4723)
+        URL url = null;
+        try {
+            url = new URL("http://127.0.0.1:4723/");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
 
-		// Set Appium server URL (default port 4723)
-		URL url = new URL("http://127.0.0.1:4723/");
+        // Launch the Android driver
+        driver = new AndroidDriver(url, cap);
 
-		// Launch the Android driver
-		driver = new AndroidDriver(url, cap);
-
-		// Set timeout
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	}
+        // Set timeout
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    }
 
 	@AfterClass
 	public void tearDown() {
@@ -217,46 +226,46 @@ public class Base {
 	 */
 	
 	// Refactored method to perform explicit wait
-	private void waitForElement(By locator) {
+	public void waitForElement(By locator) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     // Refactored method to find and click element by accessibility id
-    private void clickByAccessibilityId(String accessibilityId) {
+	public void clickByAccessibilityId(String accessibilityId) {
         driver.findElement(AppiumBy.accessibilityId(accessibilityId)).click();
     }
 
     // Refactored method to find and click element by xpath
-    private void clickByXPath(String xpath) {
+	public void clickByXPath(String xpath) {
         driver.findElement(AppiumBy.xpath(xpath)).click();
     }
     
     // Refactored method to find and click element by id
-    private void clickById(String id) {
+	public void clickById(String id) {
         driver.findElement(AppiumBy.id(id)).click();
     }
     
  // Refactored method to find and click element by classname
-    private void clickByClassname(String classname) {
+	public void clickByClassname(String classname) {
         driver.findElement(AppiumBy.className(classname)).click();
     }
 
     // Refactored method to find and send keys to element by id
-    private void sendKeysById(String id, String keys) {
+	public void sendKeysById(String id, String keys) {
         driver.findElement(AppiumBy.id(id)).sendKeys(keys);
     }
     
-    private String getElementText(By locator) {
+	public String getElementText(By locator) {
     	return driver.findElement(locator).getText();
     }
 
     // Refactored method to perform long press
-    private void longPressElement(WebElement pressElem, int durationInMillis) {
+	public void longPressElement(WebElement pressElem, int durationInMillis) {
     	((JavascriptExecutor) driver).executeScript("mobile: longClickGesture",
 				ImmutableMap.of("elementId", ((RemoteWebElement) pressElem).getId()), "duration", durationInMillis);    }
 
     // Refactored method to scroll to element by text
-    private void scrollToElementByText(String textElement) {
+	public void scrollToElementByText(String textElement) {
         driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().textContains(\"" + textElement + "\"))"));
     }
 
