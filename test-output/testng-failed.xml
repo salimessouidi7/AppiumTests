@@ -3,13 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="storeShopTest.SwipeDemo">
+      <class name="storeShopTest.ShopStoreApp">
         <methods>
+          <include name="scrollToItemTest"/>
           <include name="startAppiumServer"/>
-          <include name="swipeTest"/>
+          <include name="CartProductListTest"/>
+          <include name="addItemToCartTest"/>
           <include name="tearDown"/>
+          <include name="LoginStoreTest"/>
         </methods>
-      </class> <!-- storeShopTest.SwipeDemo -->
+      </class> <!-- storeShopTest.ShopStoreApp -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

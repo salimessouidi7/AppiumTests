@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-17T01:12:49 GMT+01:00" name="Default suite" finished-at="2024-03-17T01:13:23 GMT+01:00" duration-ms="33422">
+  <suite started-at="2024-03-17T01:26:23 GMT+01:00" name="Default suite" finished-at="2024-03-17T01:27:40 GMT+01:00" duration-ms="77545">
     <groups>
     </groups>
-    <test started-at="2024-03-17T01:12:49 GMT+01:00" name="Default test" finished-at="2024-03-17T01:13:23 GMT+01:00" duration-ms="33422">
-      <class name="storeShopTest.SwipeDemo">
-        <test-method is-config="true" signature="startAppiumServer()[pri:0, instance:storeShopTest.SwipeDemo@67c27493]" started-at="2024-03-17T01:12:49 GMT+01:00" name="startAppiumServer" description="Starts the Appium server automatically and initializes the Android driver for testing" finished-at="2024-03-17T01:13:11 GMT+01:00" duration-ms="21222" status="PASS">
+    <test started-at="2024-03-17T01:26:23 GMT+01:00" name="Default test" finished-at="2024-03-17T01:27:40 GMT+01:00" duration-ms="77545">
+      <class name="storeShopTest.ShopStoreApp">
+        <test-method is-config="true" signature="startAppiumServer()[pri:0, instance:storeShopTest.ShopStoreApp@5b8dfcc1]" started-at="2024-03-17T01:26:23 GMT+01:00" name="startAppiumServer" description="Starts the Appium server automatically and initializes the Android driver for testing" finished-at="2024-03-17T01:26:46 GMT+01:00" duration-ms="23401" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startAppiumServer -->
-        <test-method signature="swipeTest()[pri:0, instance:storeShopTest.SwipeDemo@67c27493]" started-at="2024-03-17T01:13:11 GMT+01:00" name="swipeTest" finished-at="2024-03-17T01:13:22 GMT+01:00" duration-ms="11610" status="PASS">
+        <test-method signature="LoginStoreTest()[pri:1, instance:storeShopTest.ShopStoreApp@5b8dfcc1]" started-at="2024-03-17T01:26:46 GMT+01:00" name="LoginStoreTest" finished-at="2024-03-17T01:27:11 GMT+01:00" duration-ms="25254" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- swipeTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:storeShopTest.SwipeDemo@67c27493]" started-at="2024-03-17T01:13:22 GMT+01:00" name="tearDown" finished-at="2024-03-17T01:13:23 GMT+01:00" duration-ms="545" status="PASS">
+        </test-method> <!-- LoginStoreTest -->
+        <test-method signature="addItemToCartTest()[pri:2, instance:storeShopTest.ShopStoreApp@5b8dfcc1]" started-at="2024-03-17T01:27:11 GMT+01:00" name="addItemToCartTest" description="Add items to the shopping cart and verify successful addition" finished-at="2024-03-17T01:27:15 GMT+01:00" duration-ms="4082" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addItemToCartTest -->
+        <test-method signature="scrollToItemTest()[pri:3, instance:storeShopTest.ShopStoreApp@5b8dfcc1]" started-at="2024-03-17T01:27:15 GMT+01:00" name="scrollToItemTest" description="Scroll to the item with specific text and select it" finished-at="2024-03-17T01:27:27 GMT+01:00" duration-ms="11495" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- scrollToItemTest -->
+        <test-method signature="CartProductListTest()[pri:4, instance:storeShopTest.ShopStoreApp@5b8dfcc1]" started-at="2024-03-17T01:27:27 GMT+01:00" name="CartProductListTest" description="Count the number of items in the cart" finished-at="2024-03-17T01:27:40 GMT+01:00" duration-ms="12622" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CartProductListTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:storeShopTest.ShopStoreApp@5b8dfcc1]" started-at="2024-03-17T01:27:40 GMT+01:00" name="tearDown" finished-at="2024-03-17T01:27:40 GMT+01:00" duration-ms="630" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- storeShopTest.SwipeDemo -->
+      </class> <!-- storeShopTest.ShopStoreApp -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

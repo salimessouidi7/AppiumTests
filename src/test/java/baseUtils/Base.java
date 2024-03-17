@@ -221,10 +221,11 @@ public class Base{
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		String fullName = "Salim Souidi";
-		String country = "Algeria";
+		String country = "Chile";
 
 		// Select Personal Information
 		clickByClassname("android.widget.Spinner");
+		scrollToElementByText(country);
 
 		clickByXPath("//android.widget.TextView[@resource-id=\"android:id/text1\" and @text=\"" + country + "\"]");
 
