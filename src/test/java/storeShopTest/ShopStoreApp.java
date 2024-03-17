@@ -14,7 +14,7 @@ public class ShopStoreApp extends Base {
 
 	@Test(priority = 1)
 	public void LoginStoreTest() {
-		personalInfo();
+		personalInfo("Salim Souidi");
 	}
 
 	@Test(description = "Add items to the shopping cart and verify successful addition",priority = 2)

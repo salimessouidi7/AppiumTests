@@ -217,13 +217,13 @@ public class Base{
 	 * Those methods used for ShopStoreApp class
 	 * 
 	 */
-	public void personalInfo() {
+	public void personalInfo(String fullName) {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		String fullName = "Salim Souidi";
-		String country = "Chile";
+		//String fullName = "Salim Souidi";
+		String country = "Belgium";
 
-		// Select Personal Information
+		// Scroll and select Chile option from dropDown
 		clickByClassname("android.widget.Spinner");
 		scrollToElementByText(country);
 
@@ -231,8 +231,14 @@ public class Base{
 
 		waitForElement(AppiumBy.id("com.androidsample.generalstore:id/nameField"));
 		
+		// Type the name in the field
 		sendKeysById("com.androidsample.generalstore:id/nameField", fullName);
+		driver.hideKeyboard(); // hide the keyboard after typing the text
+		
+		// Select radio button
+		clickById("com.androidsample.generalstore:id/radioMale");
 
+		// Click on let's shop
 		clickById("com.androidsample.generalstore:id/btnLetsShop");
 	}
 
