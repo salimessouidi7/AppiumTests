@@ -200,6 +200,7 @@ public class Base{
 		clickByAccessibilityId("Gallery");
 		clickByAccessibilityId("1. Photos");
 		
+		// Getting the element required to perform a swipe gesture on it
 		WebElement swipeElem = driver.findElement(AppiumBy.xpath("//android.widget.Gallery[@resource-id=\"io.appium.android.apis:id/gallery\"]/android.widget.ImageView[1]"));
 		//before perform swipe
 		Assert.assertEquals("true", swipeElem.getAttribute("focusable"));
@@ -209,7 +210,7 @@ public class Base{
 				ImmutableMap.of(
 						"elementId", ((RemoteWebElement) swipeElem).getId(),
 						"direction", "left",
-						"percent", 0.7
+						"percent", 0.75
 						));
 	}
 

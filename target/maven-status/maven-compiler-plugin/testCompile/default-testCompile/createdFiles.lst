@@ -1,8 +1,8 @@
 baseUtils\Base.class
 pagesTest\SetUpWifi.class
-storeApp\ShopStoreApp.class
+storeShopTest\ShopStoreApp.class
 pagesTest\LongPress.class
+storeShopTest\SwipeDemo.class
+storeShopTest\ToastMessageTest.class
 pagesTest\GetTextFromApp.class
 pagesTest\LaunchGoogleChromeTest.class
-storeApp\ApkPure.class
-baseUtils\AppiumTest.class

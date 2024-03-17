@@ -14,7 +14,12 @@ public class ToastMessageTest extends Base{
 
 	@Test
 	public void toastMsgTest() {
-		//DRY (Don't Repeat Yourself)
+		// DRY (Don't Repeat Yourself)
+		
+		/**
+		 * Calling the method by passing an empty string to skip the part of entering the name
+		 * To trigger the exception (with the error message indicating a missing obligatory field)
+		 */
 		personalInfo("");
 		
 		// Toast message
