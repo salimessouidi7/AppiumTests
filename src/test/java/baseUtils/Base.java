@@ -25,15 +25,14 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 
 public class Base{
-    private WebDriverWait wait;
-    private AndroidDriver driver;
-    private AppiumServiceBuilder builder;
-    private AppiumDriverLocalService appiumService;
-    private String appName;
-
+	public static WebDriverWait wait;
+    protected static AndroidDriver driver;
+    protected static AppiumServiceBuilder builder;
+    public static AppiumDriverLocalService appiumService;
+    public String appName;
+    
     public Base(String appName) {
         this.appName = appName;
-        
     }
 
     @BeforeClass(description = "Starts the Appium server automatically and initializes the Android driver for testing")
@@ -43,7 +42,6 @@ public class Base{
         String appiumPath = "C:\\Users\\TOPINFORMATIQUE\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js";
 
         // Build the Appium service builder
-     // Build the Appium service builder
         builder = new AppiumServiceBuilder()
                 .withAppiumJS(new File(appiumPath))
                 .withIPAddress("127.0.0.1")
@@ -75,6 +73,10 @@ public class Base{
         // Set timeout
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
+	
+	public static AndroidDriver getDriver() {
+		return driver;
+	}
 
 	@AfterClass
 	public void tearDown() {
@@ -88,6 +90,55 @@ public class Base{
 		 */
 
 	}
+	
+	/**
+	 * Those are Refactored methods to Refactor Common Actions into Methods
+	 * Object Locators on Appium : xpath, id, classname, accessibilityid, androidUIautomator
+	 */
+	
+	// Refactored method to perform explicit wait
+	public void waitForElement(By locator) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    // Refactored method to find and click element by accessibility id
+	public void clickByAccessibilityId(String accessibilityId) {
+        driver.findElement(AppiumBy.accessibilityId(accessibilityId)).click();
+    }
+
+    // Refactored method to find and click element by xpath
+	public void clickByXPath(String xpath) {
+        driver.findElement(AppiumBy.xpath(xpath)).click();
+    }
+    
+    // Refactored method to find and click element by id
+	public void clickById(String id) {
+        driver.findElement(AppiumBy.id(id)).click();
+    }
+    
+	// Refactored method to find and click element by classname
+	public void clickByClassname(String classname) {
+        driver.findElement(AppiumBy.className(classname)).click();
+    }
+
+    // Refactored method to find and send keys to element by id
+	public void sendKeysById(String id, String keys) {
+        driver.findElement(AppiumBy.id(id)).sendKeys(keys);
+    }
+    
+	public String getElementText(By locator) {
+    	return driver.findElement(locator).getText();
+    }
+
+    // Refactored method to perform long press
+	public void longPressElement(WebElement pressElem, int durationInMillis) {
+    	((JavascriptExecutor) driver).executeScript("mobile: longClickGesture",
+				ImmutableMap.of("elementId", ((RemoteWebElement) pressElem).getId()), "duration", durationInMillis);    }
+
+    // Refactored method to scroll to element by text
+	public void scrollToElementByText(String textElement) {
+        driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().textContains(\"" + textElement + "\"))"));
+    }
 	
 	/**
 	 * This method used for GetTextFromApp class
@@ -125,7 +176,7 @@ public class Base{
 	}
 
 	/**
-	 * This method used for LongPress class
+	 * This method used for LongPressDemo class
 	 */
 	public void longPressEle() {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -142,6 +193,24 @@ public class Base{
 				.xpath("//android.widget.TextView[@resource-id=\"android:id/title\" and @text=\"Sample action\"]"));
 		
 		clickByXPath("//android.widget.TextView[@resource-id=\"android:id/title\" and @text=\"Sample action\"]");
+	}
+	
+	public void swipeGesture() {
+		clickByXPath("//android.widget.TextView[@content-desc=\"Views\"]");
+		clickByAccessibilityId("Gallery");
+		clickByAccessibilityId("1. Photos");
+		
+		WebElement swipeElem = driver.findElement(AppiumBy.xpath("//android.widget.Gallery[@resource-id=\"io.appium.android.apis:id/gallery\"]/android.widget.ImageView[1]"));
+		//before perform swipe
+		Assert.assertEquals("true", swipeElem.getAttribute("focusable"));
+		
+		//perform swipe
+		((JavascriptExecutor) driver).executeScript("mobile: swipeGesture",
+				ImmutableMap.of(
+						"elementId", ((RemoteWebElement) swipeElem).getId(),
+						"direction", "left",
+						"percent", 0.7
+						));
 	}
 
 	/**
@@ -219,54 +288,4 @@ public class Base{
 				.getText();
 		assertTrue(addeditem.contains("ADDED TO CART"), "The item '" + addeditem + "' is not selected.");
 	}
-	
-	/**
-	 * Those are Refactored methods to Refactor Common Actions into Methods
-	 * Object Locators on Appium : xpath, id, classname, accessibilityid, androidUIautomator
-	 */
-	
-	// Refactored method to perform explicit wait
-	public void waitForElement(By locator) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
-
-    // Refactored method to find and click element by accessibility id
-	public void clickByAccessibilityId(String accessibilityId) {
-        driver.findElement(AppiumBy.accessibilityId(accessibilityId)).click();
-    }
-
-    // Refactored method to find and click element by xpath
-	public void clickByXPath(String xpath) {
-        driver.findElement(AppiumBy.xpath(xpath)).click();
-    }
-    
-    // Refactored method to find and click element by id
-	public void clickById(String id) {
-        driver.findElement(AppiumBy.id(id)).click();
-    }
-    
- // Refactored method to find and click element by classname
-	public void clickByClassname(String classname) {
-        driver.findElement(AppiumBy.className(classname)).click();
-    }
-
-    // Refactored method to find and send keys to element by id
-	public void sendKeysById(String id, String keys) {
-        driver.findElement(AppiumBy.id(id)).sendKeys(keys);
-    }
-    
-	public String getElementText(By locator) {
-    	return driver.findElement(locator).getText();
-    }
-
-    // Refactored method to perform long press
-	public void longPressElement(WebElement pressElem, int durationInMillis) {
-    	((JavascriptExecutor) driver).executeScript("mobile: longClickGesture",
-				ImmutableMap.of("elementId", ((RemoteWebElement) pressElem).getId()), "duration", durationInMillis);    }
-
-    // Refactored method to scroll to element by text
-	public void scrollToElementByText(String textElement) {
-        driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().textContains(\"" + textElement + "\"))"));
-    }
-
 }

@@ -1,4 +1,4 @@
-package storeApp;
+package storeShopTest;
 
 import org.testng.annotations.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
